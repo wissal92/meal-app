@@ -43,6 +43,9 @@ function searchMeal(e){
 }
 
 function getMealById(mealID){
+    mealsEl.innerHTML = '';
+    resultHeading.innerHTML = '';
+    
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`)
        .then(res => res.json())
        .then(data => {
@@ -63,6 +66,7 @@ function addMealToDOM(meal){
         break;
       }
     }
+
     singleMealEl.innerHTML = `
       <div class="single-meal">
         <h1>${meal.strMeal}</h1>
